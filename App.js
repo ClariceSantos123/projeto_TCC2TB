@@ -812,4 +812,4 @@ function checkMissingElements() {
         elements: elementsArray,
         missing: missing
     };
-}
+                    }
