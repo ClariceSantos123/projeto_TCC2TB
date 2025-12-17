@@ -30,25 +30,25 @@ Uma aplicação web educacional gamificada para aprender a tabela periódica atr
    - Escolha uma família química (✓ indica família completa)
 
 ### 2. **Sistema de Dedução**
-   - Você verá elementos arrastáveis com **APENAS O SÍMBOLO** (ex: "Na", "O", "Fe")
-   - **Clique nos quadros azuis** da tabela para ver as características do elemento
+   - Você verá elementos arrastáveis com **SÍMBOLO E NOME** (ex: "Na - Sódio", "O - Oxigênio", "Fe - Ferro")
+   - **Clique nos quadros azuis** da tabela para ver as características do elemento (GRATUITO!)
    - Com base nas características, deduza qual elemento deve ir ali
-   - Arraste o elemento correto para o espaço
+   - Arraste o elemento correto para o espaço (+100 se certo, -10 se errado)
 
 ### 3. **Sistema de Pontuação**
    ```
    ✅ Acerto:        +100 pontos
    ❌ Erro:          -10 pontos  
-   💡 Ver dica:      -20 pontos (ao clicar no espaço)
+   💡 Ver dica:      GRATUITO (sem custo em pontos!)
    ```
 
-### 4. **Características Mostradas na Dica**
-   Ao clicar em um espaço vazio, você verá:
+### 4. **Características Mostradas na Dica (GRATUITA)**
+   Ao clicar em um espaço vazio, você verá **gratuitamente**:
    - 📊 Número Atômico e Massa
    - 📝 Descrição e aplicações
    - ⚗️ Propriedades físicas e químicas
    - 🔬 História da descoberta
-   - **NÃO MOSTRA:** Nome do elemento (você precisa deduzir!)
+   - Use essas informações para escolher o elemento correto!
 
 ### 5. **Progresso Contínuo**
    - Complete todas as 21 famílias
@@ -63,17 +63,19 @@ Uma aplicação web educacional gamificada para aprender a tabela periódica atr
 - ~~Sistema de Quiz~~
 - ~~Estrelas baseadas em tempo~~
 - ~~Bônus de velocidade~~
-- ~~Nome, número e massa nos elementos arrastáveis~~
+- ~~Número atômico e massa nos elementos arrastáveis~~
 - ~~Arquivo quiz.js (não é mais necessário)~~
+- ~~Custo de pontos por ver dicas~~
 
 ### ✅ ADICIONADO
-- **Sistema de dicas clicáveis** (-20 pontos por dica)
-- **Pontuação simplificada** (+100/-10/-20)
-- **Modal de características** ao clicar nos espaços
-- **Elementos apenas com símbolo** para desafio de dedução
-- **Contador de dicas usadas** na interface
+- **Sistema de dicas clicáveis GRATUITAS** (sem custo em pontos!)
+- **Pontuação simplificada e educativa** (+100 acerto / -10 erro)
+- **Modal de características detalhadas** ao clicar nos espaços
+- **Elementos com símbolo E nome** para facilitar o aprendizado
+- **Contador de dicas consultadas** na interface
 - **Modal de vitória reformulado** sem quiz
 - **Modal especial** ao completar todos os 118 elementos
+- **Foco 100% educativo** - Penalidade apenas por erro, não por estudar!
 
 ---
 
@@ -151,12 +153,17 @@ tabela-periodica/
 
 **Cenário:**
 1. Você escolhe a família "Gases Nobres"
-2. Vê elementos com apenas símbolos: "He", "Ne", "Ar", "Kr", "Xe", "Rn"
-3. Clica em um quadro azul da tabela
-4. Vê: "Segundo elemento mais leve, usado em balões..." (-20 pontos)
-5. Deduz: É o Hélio!
-6. Arrasta "He" para o espaço (+100 pontos)
-7. **Total: +80 pontos** (100 de acerto - 20 da dica)
+2. Vê elementos com símbolos e nomes: "He - Hélio", "Ne - Neônio", "Ar - Argônio", etc.
+3. Clica em um quadro azul da tabela (GRATUITO!)
+4. Vê: "Segundo elemento mais leve, usado em balões..." 
+5. Analisa: Pelo número atômico 2 e as características, deduz que é o Hélio!
+6. Arrasta "He - Hélio" para o espaço (+100 pontos)
+7. **Total: +100 pontos!** (Acertou sem errar, consultou dicas gratuitamente)
+
+**Se errasse:**
+- Arrasta elemento errado: -10 pontos
+- Mas pode tentar de novo quantas vezes precisar!
+- As dicas são SEMPRE gratuitas para ajudar no aprendizado! 📚
 
 ---
 
@@ -178,16 +185,17 @@ tabela-periodica/
 
 ## 📈 Comparação: Antes vs Agora
 
-| Aspecto | Versão Anterior | Nova Versão |
+| Aspecto | Versão Anterior | Nova Versão (Educativa) |
 |---------|----------------|-------------|
-| **Elemento Card** | Nome + Nº + Massa + Símbolo | Apenas Símbolo |
-| **Dicas** | Botão geral (-10pts) | Clique no espaço (-20pts) |
+| **Elemento Card** | Nome + Nº + Massa + Símbolo | Símbolo + Nome |
+| **Dicas** | Botão geral (-10pts) | Clique no espaço (GRATUITO!) |
 | **Pontuação Acerto** | +10 pontos | +100 pontos |
 | **Pontuação Erro** | Sem penalidade | -10 pontos |
 | **Quiz** | Sim, ao finalizar | Não |
 | **Estrelas** | 1-3 baseado em tempo | Removido |
-| **Foco** | Velocidade | Dedução |
-| **Desafio** | Memorização | Raciocínio |
+| **Foco** | Velocidade | Aprendizado |
+| **Desafio** | Memorização + Velocidade | Análise + Dedução |
+| **Filosofia** | Penaliza estudar | Encoraja estudar! |
 
 ---
 
