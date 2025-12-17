@@ -1085,6 +1085,15 @@ header p {
     font-size: 0.95em;
 }
 
+.hint-free {
+    color: #155724;
+    background: #d4edda;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 0.95em;
+    font-weight: 600;
+}
+
 /* Slot com cursor de ajuda */
 .element-slot.active {
     cursor: help;
@@ -1144,4 +1153,4 @@ header p {
         font-size: 2.5em;
         padding: 15px;
     }
-}
+   }
