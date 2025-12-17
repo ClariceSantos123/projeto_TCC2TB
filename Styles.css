@@ -930,13 +930,28 @@ header p {
    NOVOS ESTILOS - SISTEMA DE DEDUÇÃO
    ============================================ */
 
-/* Elemento card - apenas símbolo */
+/* Elemento card - símbolo e nome */
 .element-symbol-only {
     font-size: 3em;
     font-weight: bold;
     color: var(--primary-color);
     text-align: center;
     padding: 20px;
+}
+
+.element-symbol-large {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.element-name-small {
+    font-size: 0.95em;
+    color: #666;
+    text-align: center;
+    font-weight: 500;
 }
 
 /* Hint Box */
@@ -947,6 +962,16 @@ header p {
 .hint-warning {
     background: #fff3cd;
     color: #856404;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.hint-info {
+    background: #d1ecf1;
+    color: #0c5460;
     padding: 12px;
     border-radius: 8px;
     margin-bottom: 20px;
@@ -1119,4 +1144,4 @@ header p {
         font-size: 2.5em;
         padding: 15px;
     }
-       }
+}
