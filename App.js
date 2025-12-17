@@ -62,6 +62,11 @@ const DOM = {
 document.addEventListener('DOMContentLoaded', init);
 
 function init() {
+    console.log('🚀 Inicializando aplicação...');
+    console.log('📦 FAMILIES_DATA:', typeof FAMILIES_DATA !== 'undefined' ? 'OK' : 'ERRO');
+    console.log('📦 TABLE_STRUCTURE:', typeof TABLE_STRUCTURE !== 'undefined' ? 'OK' : 'ERRO');
+    console.log('📦 HINTS_CONFIG:', typeof HINTS_CONFIG !== 'undefined' ? 'OK' : 'ERRO');
+    
     loadProgress();
     renderFamilyCards();
     setupEventListeners();
@@ -163,8 +168,16 @@ function updateCurrentStats() {
 }
 
 function renderFamilyCards() {
+    console.log('📋 Renderizando cards de famílias...');
     DOM.familyGrid.innerHTML = '';
     
+    if (typeof FAMILIES_DATA === 'undefined') {
+        console.error('❌ FAMILIES_DATA não está definido!');
+        DOM.familyGrid.innerHTML = '<p style="color: red; text-align: center;">Erro: Dados não carregados. Verifique se data.js, data2.js e data3.js estão na mesma pasta.</p>';
+        return;
+    }
+    
+    let cardCount = 0;
     for (const [key, family] of Object.entries(FAMILIES_DATA)) {
         const card = document.createElement('button');
         card.className = 'family-card';
@@ -188,6 +201,10 @@ function renderFamilyCards() {
             groupText = 'Terras Raras';
         } else if (family.group === 'An') {
             groupText = 'Radioativos';
+        } else if (family.group === 'H') {
+            groupText = 'Elemento Único';
+        } else if (family.group === 'P7') {
+            groupText = 'Sintéticos';
         } else if (family.multiGroup) {
             groupText = 'Múltiplos Grupos';
         } else {
@@ -203,7 +220,10 @@ function renderFamilyCards() {
         `;
         
         DOM.familyGrid.appendChild(card);
+        cardCount++;
     }
+    
+    console.log(`✅ ${cardCount} famílias renderizadas`);
 }
 
 // ============================================
@@ -221,6 +241,10 @@ function startGame(familyKey) {
         titleText += ' - Lantanídeos';
     } else if (currentFamily.group === 'An') {
         titleText += ' - Actinídeos';
+    } else if (currentFamily.group === 'H') {
+        titleText += ' - Elemento Único';
+    } else if (currentFamily.group === 'P7') {
+        titleText += ' - Sintéticos do Período 7';
     } else if (currentFamily.multiGroup) {
         titleText += ' - Múltiplos Grupos';
     } else {
@@ -331,6 +355,11 @@ function createPeriodLabels() {
 }
 
 function createTableSlots() {
+    if (typeof TABLE_STRUCTURE === 'undefined') {
+        console.error('❌ TABLE_STRUCTURE não está definido!');
+        return;
+    }
+    
     TABLE_STRUCTURE.forEach((periodGroups, periodIndex) => {
         const period = periodIndex + 1;
         
@@ -395,7 +424,7 @@ function createTableSlots() {
     });
     
     // Adicionar slots especiais para Lantanídeos e Actinídeos se for necessário
-    if (currentFamily.group === 'Ln' || currentFamily.group === 'An') {
+    if (currentFamily.group === 'Ln' || currentFamily.group === 'An' || currentFamily.group === 'P7') {
         createLanthanideActinideSlots();
     }
 }
@@ -784,22 +813,3 @@ function checkMissingElements() {
         missing: missing
     };
 }
-
-// Estrutura da Tabela Periódica (períodos x grupos)
-// 0 = espaço vazio
-const TABLE_STRUCTURE = [
-    // Período 1
-    [1, 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0, 18],
-    // Período 2
-    [1, 2, 0,0,0,0,0,0,0,0,0,0, 13,14,15,16,17, 18],
-    // Período 3
-    [1, 2, 0,0,0,0,0,0,0,0,0,0, 13,14,15,16,17, 18],
-    // Período 4
-    [1, 2, 3,4,5,6,7,8,9,10,11,12, 13,14,15,16,17, 18],
-    // Período 5
-    [1, 2, 3,4,5,6,7,8,9,10,11,12, 13,14,15,16,17, 18],
-    // Período 6
-    [1, 2, 3,4,5,6,7,8,9,10,11,12, 13,14,15,16,17, 18],
-    // Período 7
-    [1, 2, 3,4,5,6,7,8,9,10,11,12, 13,14,15,16,17, 18]
-];
