@@ -410,7 +410,7 @@ function createTableSlots() {
                 // NOVO: Adicionar evento de clique para mostrar dica
                 slot.addEventListener('click', () => showSlotHint(element));
                 slot.style.cursor = 'help';
-                slot.title = 'Clique para ver as características do elemento (-20 pontos)';
+                slot.title = 'Clique para ver as características do elemento';
                 
                 slot.addEventListener('dragover', handleDragOver);
                 slot.addEventListener('drop', handleDrop);
@@ -487,7 +487,7 @@ function createLanthanideActinideSlots() {
             // NOVO: Adicionar evento de clique para mostrar dica
             slot.addEventListener('click', () => showSlotHint(element));
             slot.style.cursor = 'help';
-            slot.title = 'Clique para ver as características do elemento (-20 pontos)';
+            slot.title = 'Clique para ver as características do elemento';
             
             slot.addEventListener('dragover', handleDragOver);
             slot.addEventListener('drop', handleDrop);
@@ -542,9 +542,10 @@ function createElementCard(element) {
     card.draggable = true;
     card.dataset.number = element.number;
     
-    // MODIFICADO: Mostrar apenas o símbolo (SEM nome, número atômico e massa)
+    // MODIFICADO: Mostrar símbolo E nome (SEM número atômico e massa)
     card.innerHTML = `
-        <div class="element-symbol-only">${element.symbol}</div>
+        <div class="element-symbol-large">${element.symbol}</div>
+        <div class="element-name-small">${element.name}</div>
     `;
     
     card.addEventListener('dragstart', handleDragStart);
@@ -557,15 +558,14 @@ function createElementCard(element) {
 // SISTEMA DE DICAS (NOVO)
 // ============================================
 function showSlotHint(element) {
-    // Cobrar 20 pontos pela dica
+    // MODIFICADO: Dicas agora são GRATUITAS para fins educativos
     hintsUsed++;
-    currentScore = Math.max(0, currentScore - 20); // -20 pontos por dica
     updateCurrentStats();
     
     DOM.modalTitle.textContent = '🔍 Características do Elemento';
     DOM.modalBody.innerHTML = `
         <div class="hint-box">
-            <p class="hint-warning">💡 Esta dica custou -20 pontos</p>
+            <p class="hint-info">💡 Use estas informações para descobrir qual elemento colocar aqui!</p>
             
             <div class="hint-section">
                 <h4>📊 Informações Básicas</h4>
@@ -590,8 +590,8 @@ function showSlotHint(element) {
                 <p>${element.discovery}</p>
             </div>
             
-            <p class="hint-challenge">🎯 Com essas informações, você consegue descobrir qual elemento é?</p>
-            <p style="margin-top: 10px; color: #856404;"><strong>Dicas usadas: ${hintsUsed}</strong></p>
+            <p class="hint-challenge">🎯 Analise as características acima e escolha o elemento correto!</p>
+            <p style="margin-top: 10px; color: #4CAF50;"><strong>📚 Dicas consultadas: ${hintsUsed}</strong></p>
         </div>
     `;
     openModal();
