@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabela Periódica Interativa</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🧪 Tabela Periódica Interativa</h1>
+            <p>Aprenda química de forma divertida e interativa!</p>
+        </header>
+
+        <!-- Tela de Seleção de Família -->
+        <div id="selectionScreen" class="screen active">
+            <div class="family-selection">
+                <h2>Escolha uma Família para Estudar</h2>
+                <p class="subtitle">
+                    Arraste e solte os elementos nos seus lugares corretos na tabela periódica
+                </p>
+                
+                <!-- Painel de Progresso Global -->
+                <div class="global-progress">
+                    <div class="progress-stats">
+                        <div class="stat-item">
+                            <span class="stat-icon">🏆</span>
+                            <div>
+                                <div class="stat-value" id="totalScore">0</div>
+                                <div class="stat-label">Pontos Totais</div>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-icon">✅</span>
+                            <div>
+                                <div class="stat-value" id="totalElements">0/118</div>
+                                <div class="stat-label">Elementos Completados</div>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-icon">📚</span>
+                            <div>
+                                <div class="stat-value" id="totalFamilies">0/21</div>
+                                <div class="stat-label">Famílias Completadas</div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-secondary" id="btnResetAll" style="margin-top: 15px;">🔄 Resetar Tudo</button>
+                </div>
+
+                <div class="family-grid" id="familyGrid">
+                    <!-- Cards gerados dinamicamente pelo JS -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Tela de Jogo -->
+        <div id="gameScreen" class="screen">
+            <div class="game-screen">
+                <div class="game-header">
+                    <h2 class="game-title" id="familyTitle">Família</h2>
+                    <div class="game-stats">
+                        <div class="stat-mini">
+                            <span>🏆</span>
+                            <span id="currentScore">0</span>
+                        </div>
+                        <div class="stat-mini">
+                            <span>⏱️</span>
+                            <span id="timer">00:00</span>
+                        </div>
+                        <div class="stat-mini">
+                            <span>💡</span>
+                            <span id="hintsUsed">0</span>
+                        </div>
+                    </div>
+                    <div class="controls">
+                        <button class="btn btn-primary" id="btnReset">🔄 Reiniciar</button>
+                        <button class="btn btn-secondary" id="btnMenu">🏠 Menu</button>
+                    </div>
+                </div>
+
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressBar">0 / 0</div>
+                </div>
+
+                <div class="game-area">
+                    <div class="periodic-table">
+                        <h3>Tabela Periódica Completa</h3>
+                        <p class="table-instruction">
+                            💡 <strong>Clique nos quadros azuis</strong> para ver as características do elemento e descobrir qual elemento é!
+                        </p>
+                        <div id="tableGrid"></div>
+                    </div>
+
+                    <div class="elements-pool">
+                        <h3>Elementos Disponíveis</h3>
+                        <p class="pool-instruction">Arraste para a posição correta</p>
+                        <div class="pool-grid" id="elementsPool"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal de Informações / Dica -->
+        <div id="infoModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 id="modalTitle">🔍 Características do Elemento</h2>
+                    <button class="close-btn" id="btnCloseModal">&times;</button>
+                </div>
+                <div id="modalBody" class="element-info"></div>
+                <div class="modal-footer">
+                    <p class="hint-cost">💡 Esta dica custa -20 pontos</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal de Vitória -->
+        <div id="victoryModal" class="modal">
+            <div class="modal-content victory-content">
+                <div class="modal-header">
+                    <h2>🎉 Família Completa!</h2>
+                </div>
+                <div class="victory-body">
+                    <div class="victory-stats">
+                        <div class="victory-stat">
+                            <span class="stat-icon">🏆</span>
+                            <div>
+                                <div class="stat-label">Pontuação</div>
+                                <div class="stat-value" id="finalScore">0</div>
+                            </div>
+                        </div>
+                        <div class="victory-stat">
+                            <span class="stat-icon">⏱️</span>
+                            <div>
+                                <div class="stat-label">Tempo</div>
+                                <div class="stat-value" id="finalTime">00:00</div>
+                            </div>
+                        </div>
+                        <div class="victory-stat">
+                            <span class="stat-icon">💡</span>
+                            <div>
+                                <div class="stat-label">Dicas Usadas</div>
+                                <div class="stat-value" id="finalHints">0</div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary btn-large" id="btnContinue">✅ Continuar</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal de Tabela Completa -->
+        <div id="completeModal" class="modal">
+            <div class="modal-content victory-content">
+                <div class="modal-header">
+                    <h2>🏆 PARABÉNS!</h2>
+                </div>
+                <div class="victory-body">
+                    <h3 style="text-align: center; margin: 20px 0;">
+                        Você completou TODA a Tabela Periódica!
+                    </h3>
+                    <p style="text-align: center; font-size: 1.2em; margin: 20px 0;">
+                        Todos os 118 elementos foram corretamente posicionados! 🎯
+                    </p>
+                    <div class="victory-stats">
+                        <div class="victory-stat">
+                            <span class="stat-icon">🏆</span>
+                            <div>
+                                <div class="stat-label">Pontuação Total</div>
+                                <div class="stat-value" id="completeTotalScore">0</div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary btn-large" id="btnCompleteOk">🎉 Finalizar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="data2.js"></script>
+    <script src="data3.js"></script>
+    <script src="app.js"></script>
+</body>
+                              </html>
