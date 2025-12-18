@@ -47,6 +47,11 @@ const DOM = {
     completeModal: document.getElementById('completeModal'),
     btnContinue: document.getElementById('btnContinue'),
     btnCompleteOk: document.getElementById('btnCompleteOk'),
+    btnViewCompleteTable: document.getElementById('btnViewCompleteTable'),
+    completeTableScreen: document.getElementById('completeTableScreen'),
+    completeTableGrid: document.getElementById('completeTableGrid'),
+    btnBackFromComplete: document.getElementById('btnBackFromComplete'),
+    btnRestartFromComplete: document.getElementById('btnRestartFromComplete'),
     // Estatísticas
     totalScore: document.getElementById('totalScore'),
     totalElements: document.getElementById('totalElements'),
@@ -63,9 +68,28 @@ document.addEventListener('DOMContentLoaded', init);
 
 function init() {
     console.log('🚀 Inicializando aplicação...');
+    
+    // Verificar elementos do DOM críticos
+    console.log('🔍 Verificando elementos do DOM...');
+    if (!DOM.familyGrid) {
+        console.error('❌ ERRO CRÍTICO: familyGrid não encontrado!');
+        alert('Erro: Elemento familyGrid não encontrado no HTML!');
+        return;
+    }
+    console.log('✅ familyGrid encontrado');
+    
+    console.log('📦 Verificando dados...');
     console.log('📦 FAMILIES_DATA:', typeof FAMILIES_DATA !== 'undefined' ? 'OK' : 'ERRO');
     console.log('📦 TABLE_STRUCTURE:', typeof TABLE_STRUCTURE !== 'undefined' ? 'OK' : 'ERRO');
     console.log('📦 HINTS_CONFIG:', typeof HINTS_CONFIG !== 'undefined' ? 'OK' : 'ERRO');
+    
+    if (typeof FAMILIES_DATA === 'undefined') {
+        console.error('❌ FAMILIES_DATA não carregado!');
+        DOM.familyGrid.innerHTML = '<p style="color: red; padding: 20px; text-align: center; font-size: 1.2em;">❌ Erro: Arquivos de dados não carregados!<br><br>Verifique se data.js, data2.js e data3.js estão na mesma pasta que index.html</p>';
+        return;
+    }
+    
+    console.log(`📚 ${Object.keys(FAMILIES_DATA).length} famílias carregadas`);
     
     loadProgress();
     renderFamilyCards();
@@ -89,6 +113,9 @@ function setupEventListeners() {
     DOM.btnResetAll.addEventListener('click', resetAllProgress);
     DOM.btnContinue.addEventListener('click', closeVictoryModal);
     DOM.btnCompleteOk.addEventListener('click', closeCompleteModal);
+    DOM.btnViewCompleteTable.addEventListener('click', showCompleteTableView);
+    DOM.btnBackFromComplete.addEventListener('click', backToMenuFromComplete);
+    DOM.btnRestartFromComplete.addEventListener('click', restartFromComplete);
     DOM.infoModal.addEventListener('click', (e) => {
         if (e.target === DOM.infoModal) closeModal();
     });
@@ -739,7 +766,151 @@ function showCompletionMessage() {
 
 function showFullTableCompletionMessage() {
     document.getElementById('completeTotalScore').textContent = totalScore.toLocaleString();
+    document.getElementById('completeTableScore').textContent = totalScore.toLocaleString() + ' Pontos';
     DOM.completeModal.classList.add('active');
+}
+
+function showCompleteTableView() {
+    // Fechar modal
+    DOM.completeModal.classList.remove('active');
+    
+    // Esconder outras telas
+    DOM.selectionScreen.classList.remove('active');
+    DOM.gameScreen.classList.remove('active');
+    
+    // Mostrar tela de tabela completa
+    DOM.completeTableScreen.classList.add('active');
+    
+    // Renderizar a tabela completa
+    renderCompletePeriodicTable();
+}
+
+function renderCompletePeriodicTable() {
+    DOM.completeTableGrid.innerHTML = '';
+    
+    // Criar todos os 118 elementos organizados na estrutura da tabela
+    const allElementsMap = new Map();
+    
+    // Mapear todos os elementos por número atômico
+    for (const family of Object.values(FAMILIES_DATA)) {
+        family.elements.forEach(el => {
+            allElementsMap.set(el.number, el);
+        });
+    }
+    
+    // Estrutura da tabela periódica completa (10 linhas incluindo lantanídeos e actinídeos)
+    // Linhas 1-7: Tabela principal
+    for (let row = 1; row <= 7; row++) {
+        for (let col = 1; col <= 18; col++) {
+            const slot = document.createElement('div');
+            slot.className = 'element-slot';
+            slot.style.cssText = `grid-column: ${col}; grid-row: ${row};`;
+            
+            // Encontrar elemento nesta posição
+            let element = null;
+            for (const el of allElementsMap.values()) {
+                if (el.period === row && el.group === col) {
+                    element = el;
+                    break;
+                }
+            }
+            
+            if (element) {
+                slot.classList.add('filled');
+                // Adicionar classe de grupo para cores
+                if (element.group <= 2) {
+                    slot.classList.add(`group-${element.group}`);
+                } else if (element.group >= 13) {
+                    slot.classList.add(`group-${element.group}`);
+                } else {
+                    slot.classList.add('transition-metal');
+                }
+                
+                slot.innerHTML = `
+                    <div class="element-number">${element.number}</div>
+                    <div class="element-symbol">${element.symbol}</div>
+                    <div class="element-name">${element.name}</div>
+                `;
+                
+                // Adicionar tooltip com informações
+                slot.title = `${element.name} (${element.symbol}) - Z=${element.number}`;
+            }
+            
+            DOM.completeTableGrid.appendChild(slot);
+        }
+    }
+    
+    // Linha 8: Espaço vazio
+    for (let col = 1; col <= 18; col++) {
+        const empty = document.createElement('div');
+        empty.style.cssText = `grid-column: ${col}; grid-row: 8;`;
+        DOM.completeTableGrid.appendChild(empty);
+    }
+    
+    // Linha 9: Lantanídeos (57-71)
+    for (let i = 57; i <= 71; i++) {
+        const element = allElementsMap.get(i);
+        if (element) {
+            const slot = document.createElement('div');
+            slot.className = 'element-slot filled lanthanide';
+            const col = i - 57 + 2; // Começar na coluna 2
+            slot.style.cssText = `grid-column: ${col}; grid-row: 9;`;
+            slot.innerHTML = `
+                <div class="element-number">${element.number}</div>
+                <div class="element-symbol">${element.symbol}</div>
+                <div class="element-name">${element.name}</div>
+            `;
+            slot.title = `${element.name} (${element.symbol}) - Z=${element.number} - Lantanídeo`;
+            DOM.completeTableGrid.appendChild(slot);
+        }
+    }
+    
+    // Linha 10: Actinídeos (89-103)
+    for (let i = 89; i <= 103; i++) {
+        const element = allElementsMap.get(i);
+        if (element) {
+            const slot = document.createElement('div');
+            slot.className = 'element-slot filled actinide';
+            const col = i - 89 + 2; // Começar na coluna 2
+            slot.style.cssText = `grid-column: ${col}; grid-row: 10;`;
+            slot.innerHTML = `
+                <div class="element-number">${element.number}</div>
+                <div class="element-symbol">${element.symbol}</div>
+                <div class="element-name">${element.name}</div>
+            `;
+            slot.title = `${element.name} (${element.symbol}) - Z=${element.number} - Actinídeo`;
+            DOM.completeTableGrid.appendChild(slot);
+        }
+    }
+    
+    // Adicionar labels para lantanídeos e actinídeos
+    const lnLabel = document.createElement('div');
+    lnLabel.style.cssText = `grid-column: 1; grid-row: 9; display: flex; align-items: center; justify-content: center; font-weight: bold; color: var(--primary-color); font-size: 0.8em;`;
+    lnLabel.textContent = 'Ln';
+    DOM.completeTableGrid.appendChild(lnLabel);
+    
+    const anLabel = document.createElement('div');
+    anLabel.style.cssText = `grid-column: 1; grid-row: 10; display: flex; align-items: center; justify-content: center; font-weight: bold; color: var(--primary-color); font-size: 0.8em;`;
+    anLabel.textContent = 'An';
+    DOM.completeTableGrid.appendChild(anLabel);
+}
+
+function backToMenuFromComplete() {
+    DOM.completeTableScreen.classList.remove('active');
+    DOM.selectionScreen.classList.add('active');
+}
+
+function restartFromComplete() {
+    if (confirm('Tem certeza que deseja começar uma nova jornada? Todo o progresso será perdido!')) {
+        localStorage.removeItem('tabelaPeriodicaProgress');
+        completedElements.clear();
+        completedFamilies.clear();
+        totalScore = 0;
+        DOM.completeTableScreen.classList.remove('active');
+        DOM.selectionScreen.classList.add('active');
+        updateGlobalStats();
+        renderFamilyCards();
+    }
 }
 
 function formatTime(seconds) {
@@ -763,7 +934,9 @@ function closeVictoryModal() {
 
 function closeCompleteModal() {
     DOM.completeModal.classList.remove('active');
-    backToMenu();
+    DOM.selectionScreen.classList.add('active');
+    updateGlobalStats();
+    renderFamilyCards();
 }
 
 // ============================================
@@ -812,4 +985,4 @@ function checkMissingElements() {
         elements: elementsArray,
         missing: missing
     };
-                    }
+}
