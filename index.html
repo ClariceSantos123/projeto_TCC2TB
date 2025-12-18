@@ -173,7 +173,42 @@
                             </div>
                         </div>
                     </div>
-                    <button class="btn btn-primary btn-large" id="btnCompleteOk">🎉 Finalizar</button>
+                    <button class="btn btn-primary btn-large" id="btnViewCompleteTable">🔬 Ver Tabela Completa</button>
+                    <button class="btn btn-secondary btn-large" id="btnCompleteOk" style="margin-top: 10px;">🏠 Voltar ao Menu</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tela de Tabela Completa -->
+        <div id="completeTableScreen" class="screen">
+            <div class="complete-table-view">
+                <header class="complete-header">
+                    <h1>🏆 TABELA PERIÓDICA COMPLETA 🏆</h1>
+                    <p class="complete-subtitle">Parabéns! Você dominou todos os 118 elementos!</p>
+                </header>
+                
+                <div class="complete-stats-bar">
+                    <div class="complete-stat">
+                        <span class="stat-icon">🎯</span>
+                        <span>118/118 Elementos</span>
+                    </div>
+                    <div class="complete-stat">
+                        <span class="stat-icon">📚</span>
+                        <span>21/21 Famílias</span>
+                    </div>
+                    <div class="complete-stat">
+                        <span class="stat-icon">🏆</span>
+                        <span id="completeTableScore">0 Pontos</span>
+                    </div>
+                </div>
+
+                <div class="complete-table-container">
+                    <div id="completeTableGrid"></div>
+                </div>
+
+                <div class="complete-actions">
+                    <button class="btn btn-primary btn-large" id="btnBackFromComplete">🏠 Voltar ao Menu Principal</button>
+                    <button class="btn btn-secondary btn-large" id="btnRestartFromComplete">🔄 Começar Nova Jornada</button>
                 </div>
             </div>
         </div>
@@ -184,4 +219,4 @@
     <script src="data3.js"></script>
     <script src="App.js"></script>
 </body>
-            </html>
+</html>
