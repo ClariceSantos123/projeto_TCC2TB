@@ -1153,4 +1153,225 @@ header p {
         font-size: 2.5em;
         padding: 15px;
     }
-   }
+}
+
+/* ============================================
+   TELA DE TABELA COMPLETA
+   ============================================ */
+
+.complete-table-view {
+    max-width: 1800px;
+    margin: 0 auto;
+    padding: 30px 20px;
+}
+
+.complete-header {
+    text-align: center;
+    margin-bottom: 30px;
+    animation: slideDown 0.8s ease-out;
+}
+
+.complete-header h1 {
+    font-size: 3em;
+    background: linear-gradient(135deg, #FFD700, #FFA500);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 10px;
+    text-shadow: 0 2px 10px rgba(255, 215, 0, 0.3);
+}
+
+.complete-subtitle {
+    font-size: 1.3em;
+    color: var(--text-color);
+    margin-top: 10px;
+}
+
+.complete-stats-bar {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 165, 0, 0.1));
+    border-radius: 15px;
+    border: 2px solid #FFD700;
+    animation: fadeIn 1s ease-out 0.3s both;
+}
+
+.complete-stat {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+.complete-stat .stat-icon {
+    font-size: 1.5em;
+}
+
+.complete-table-container {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    overflow-x: auto;
+    animation: fadeIn 1s ease-out 0.5s both;
+}
+
+#completeTableGrid {
+    display: grid;
+    grid-template-columns: repeat(18, 60px);
+    grid-template-rows: repeat(10, 60px);
+    gap: 3px;
+    justify-content: center;
+    min-width: fit-content;
+}
+
+.complete-table-container .element-slot {
+    width: 60px;
+    height: 60px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75em;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.complete-table-container .element-slot:hover {
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+}
+
+.complete-table-container .element-slot.filled {
+    background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+    border-color: #4CAF50;
+}
+
+.complete-table-container .element-number {
+    font-size: 0.7em;
+    color: #666;
+}
+
+.complete-table-container .element-symbol {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin: 2px 0;
+}
+
+.complete-table-container .element-name {
+    font-size: 0.65em;
+    color: #666;
+    text-align: center;
+    line-height: 1;
+}
+
+.complete-actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    animation: fadeIn 1s ease-out 0.7s both;
+}
+
+/* Cores específicas por grupo na tabela completa */
+.complete-table-container .group-1 { background: linear-gradient(135deg, #ffebee, #ffcdd2); }
+.complete-table-container .group-2 { background: linear-gradient(135deg, #fff3e0, #ffe0b2); }
+.complete-table-container .group-13 { background: linear-gradient(135deg, #e3f2fd, #bbdefb); }
+.complete-table-container .group-14 { background: linear-gradient(135deg, #f3e5f5, #e1bee7); }
+.complete-table-container .group-15 { background: linear-gradient(135deg, #e8eaf6, #c5cae9); }
+.complete-table-container .group-16 { background: linear-gradient(135deg, #fce4ec, #f8bbd0); }
+.complete-table-container .group-17 { background: linear-gradient(135deg, #fff9c4, #fff59d); }
+.complete-table-container .group-18 { background: linear-gradient(135deg, #e0f2f1, #b2dfdb); }
+.complete-table-container .transition-metal { background: linear-gradient(135deg, #fff8e1, #ffecb3); }
+.complete-table-container .lanthanide { background: linear-gradient(135deg, #ede7f6, #d1c4e9); }
+.complete-table-container .actinide { background: linear-gradient(135deg, #fce4ec, #f8bbd0); }
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsividade para tabela completa */
+@media (max-width: 1200px) {
+    #completeTableGrid {
+        grid-template-columns: repeat(18, 50px);
+        grid-template-rows: repeat(10, 50px);
+    }
+    
+    .complete-table-container .element-slot {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+@media (max-width: 768px) {
+    .complete-header h1 {
+        font-size: 2em;
+    }
+    
+    .complete-stats-bar {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    #completeTableGrid {
+        grid-template-columns: repeat(18, 40px);
+        grid-template-rows: repeat(10, 40px);
+        gap: 2px;
+    }
+    
+    .complete-table-container .element-slot {
+        width: 40px;
+        height: 40px;
+        font-size: 0.6em;
+    }
+    
+    .complete-actions {
+        flex-direction: column;
+    }
+    
+    .btn-large {
+        width: 100%;
+    }
+}
+
+/* Animação de entrada dos elementos da tabela completa */
+.complete-table-container .element-slot {
+    animation: elementPop 0.5s ease-out backwards;
+}
+
+.complete-table-container .element-slot:nth-child(1) { animation-delay: 0.05s; }
+.complete-table-container .element-slot:nth-child(2) { animation-delay: 0.1s; }
+.complete-table-container .element-slot:nth-child(3) { animation-delay: 0.15s; }
+
+@keyframes elementPop {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Efeito de brilho dourado ao passar o mouse */
+.complete-table-container .element-slot:hover {
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+    border-color: #FFD700;
+}
