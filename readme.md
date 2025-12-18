@@ -55,6 +55,14 @@ Uma aplicação web educacional gamificada para aprender a tabela periódica atr
    - Veja a tabela periódica completa se formar
    - Acumule pontos através da dedução
 
+### 6. **🏆 Conquista Final - Tabela Completa**
+   Ao completar todos os 118 elementos:
+   - 🎉 **Modal de parabéns** com sua pontuação total
+   - 🔬 **Visualização da Tabela Completa** - Veja TODOS os 118 elementos organizados!
+   - 🌈 **Cores por grupos** - Cada família química com cor diferente
+   - 📊 **Estatísticas finais** - Total de pontos, elementos e famílias
+   - ✨ **Animações especiais** - Celebração visual do seu sucesso!
+
 ---
 
 ## 🆕 PRINCIPAIS MUDANÇAS
@@ -74,7 +82,9 @@ Uma aplicação web educacional gamificada para aprender a tabela periódica atr
 - **Elementos com símbolo E nome** para facilitar o aprendizado
 - **Contador de dicas consultadas** na interface
 - **Modal de vitória reformulado** sem quiz
-- **Modal especial** ao completar todos os 118 elementos
+- **🏆 VISUALIZAÇÃO DA TABELA COMPLETA** ao completar os 118 elementos
+- **Tela especial com todos os elementos organizados** e coloridos por grupo
+- **Animações de celebração** ao concluir a tabela inteira
 - **Foco 100% educativo** - Penalidade apenas por erro, não por estudar!
 
 ---
@@ -242,3 +252,30 @@ Versão 2.0 - Sistema de Dedução
 Esta nova versão oferece uma experiência de aprendizado muito mais **engajadora** e **educativa**, transformando o estudo da tabela periódica em um verdadeiro **desafio investigativo**!
 
 **Boa sorte na sua jornada de descoberta química!** 🧪🔬✨
+
+---
+
+## 🏆 Visualização da Tabela Completa
+
+Ao completar todos os 118 elementos químicos, você terá acesso a uma **tela especial** que mostra a tabela periódica inteira de forma visual e organizada!
+
+### Características:
+- 📊 **Layout Completo**: Todos os 118 elementos organizados em 10 linhas (7 períodos + lantanídeos + actinídeos)
+- 🌈 **Cores por Grupos**: Cada família química tem uma cor diferente para fácil identificação
+- 🔍 **Interativa**: Passe o mouse sobre qualquer elemento para destacá-lo
+- ✨ **Animações**: Elementos aparecem com efeitos visuais elegantes
+- 📱 **Responsiva**: Ajusta-se a diferentes tamanhos de tela
+
+### Grupos de Cores:
+- 🔴 **Metais Alcalinos** (Grupo 1) - Vermelho/Rosa
+- 🟠 **Alcalino-Terrosos** (Grupo 2) - Laranja
+- 🟡 **Metais de Transição** (Grupos 3-12) - Amarelo/Dourado
+- 🔵 **Grupo 13-18** - Azul, Roxo, Rosa, Amarelo, Verde
+- 🟣 **Lantanídeos** - Roxo claro
+- 🔴 **Actinídeos** - Rosa
+
+### Navegação:
+- 🏠 **Voltar ao Menu** - Retorna à tela principal
+- 🔄 **Começar Nova Jornada** - Reseta todo o progresso para jogar novamente
+
+Esta visualização é uma **recompensa visual** pelo seu esforço em dominar toda a tabela periódica! 🎉
