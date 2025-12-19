@@ -1,4 +1,4 @@
-# 🧪 Tabela Periódica Interativa - VERSÃO ATUALIZADA
+# 🧪 Tabela Periódica Interativa 
 
 **Projeto de TCC - Sistemas de Informação**
 
@@ -6,24 +6,8 @@ Uma aplicação web educacional gamificada para aprender a tabela periódica atr
 
 ---
 
-## ✨ O QUE MUDOU NESTA VERSÃO?
 
-### 🎯 NOVA MECÂNICA DE JOGO - SISTEMA DE DEDUÇÃO
-
-**ANTES:**
-- Elementos mostravam: Nome, Número Atômico e Massa
-- Quiz ao final de cada família
-- Sistema de estrelas e bônus de tempo
-
-**AGORA:**
-- **Elementos mostram APENAS o símbolo químico** (sem nome, número ou massa)
-- **Sistema de dicas ao clicar nos espaços vazios** - Mostra características do elemento
-- **Novo sistema de pontuação mais simples e direto**
-- O jogador precisa DEDUZIR qual elemento é baseado nas propriedades
-
----
-
-## 🎮 COMO JOGAR AGORA
+## 🎮 COMO JOGAR :
 
 ### 1. **Escolha uma Família**
    - Visualize suas estatísticas globais
@@ -42,8 +26,8 @@ Uma aplicação web educacional gamificada para aprender a tabela periódica atr
    💡 Ver dica:      GRATUITO (sem custo em pontos!)
    ```
 
-### 4. **Características Mostradas na Dica (GRATUITA)**
-   Ao clicar em um espaço vazio, você verá **gratuitamente**:
+### 4. **Características Mostradas na Dica **
+   Ao clicar em um espaço vazio, você verá **Dicas**:
    - 📊 Número Atômico e Massa
    - 📝 Descrição e aplicações
    - ⚗️ Propriedades físicas e químicas
@@ -56,38 +40,15 @@ Uma aplicação web educacional gamificada para aprender a tabela periódica atr
    - Acumule pontos através da dedução
 
 ### 6. **🏆 Conquista Final - Tabela Completa**
-   Ao completar todos os 118 elementos:
+   Ao completar **TODAS as 21 famílias**:
    - 🎉 **Modal de parabéns** com sua pontuação total
    - 🔬 **Visualização da Tabela Completa** - Veja TODOS os 118 elementos organizados!
    - 🌈 **Cores por grupos** - Cada família química com cor diferente
    - 📊 **Estatísticas finais** - Total de pontos, elementos e famílias
    - ✨ **Animações especiais** - Celebração visual do seu sucesso!
+   
+   **Importante:** A tela de tabela completa só aparece quando você completar todas as 21 famílias, não apenas os 118 elementos!
 
----
-
-## 🆕 PRINCIPAIS MUDANÇAS
-
-### ❌ REMOVIDO
-- ~~Sistema de Quiz~~
-- ~~Estrelas baseadas em tempo~~
-- ~~Bônus de velocidade~~
-- ~~Número atômico e massa nos elementos arrastáveis~~
-- ~~Arquivo quiz.js (não é mais necessário)~~
-- ~~Custo de pontos por ver dicas~~
-
-### ✅ ADICIONADO
-- **Sistema de dicas clicáveis GRATUITAS** (sem custo em pontos!)
-- **Pontuação simplificada e educativa** (+100 acerto / -10 erro)
-- **Modal de características detalhadas** ao clicar nos espaços
-- **Elementos com símbolo E nome** para facilitar o aprendizado
-- **Contador de dicas consultadas** na interface
-- **Modal de vitória reformulado** sem quiz
-- **🏆 VISUALIZAÇÃO DA TABELA COMPLETA** ao completar os 118 elementos
-- **Tela especial com todos os elementos organizados** e coloridos por grupo
-- **Animações de celebração** ao concluir a tabela inteira
-- **Foco 100% educativo** - Penalidade apenas por erro, não por estudar!
-
----
 
 ## 📁 Estrutura do Projeto
 
@@ -102,25 +63,6 @@ tabela-periodica/
 ├── data3.js            # Dados das famílias parte 3 (inalterado)
 └── README.md           # Esta documentação
 
-❌ quiz.js - REMOVIDO (não é mais necessário)
-```
-
----
-
-## 🚀 Como Executar
-
-1. **Baixe todos os arquivos** (EXCETO quiz.js que foi removido)
-2. Certifique-se de ter esses **6 arquivos** na mesma pasta:
-   - index.html
-   - styles.css
-   - data.js
-   - data2.js
-   - data3.js
-   - app.js
-3. **Abra o arquivo** `index.html` em um navegador moderno
-4. **Pronto!** Não requer servidor ou instalação
-
----
 
 ## 🎯 Diferenciais Pedagógicos
 
@@ -193,22 +135,6 @@ tabela-periodica/
 
 ---
 
-## 📈 Comparação: Antes vs Agora
-
-| Aspecto | Versão Anterior | Nova Versão (Educativa) |
-|---------|----------------|-------------|
-| **Elemento Card** | Nome + Nº + Massa + Símbolo | Símbolo + Nome |
-| **Dicas** | Botão geral (-10pts) | Clique no espaço (GRATUITO!) |
-| **Pontuação Acerto** | +10 pontos | +100 pontos |
-| **Pontuação Erro** | Sem penalidade | -10 pontos |
-| **Quiz** | Sim, ao finalizar | Não |
-| **Estrelas** | 1-3 baseado em tempo | Removido |
-| **Foco** | Velocidade | Aprendizado |
-| **Desafio** | Memorização + Velocidade | Análise + Dedução |
-| **Filosofia** | Penaliza estudar | Encoraja estudar! |
-
----
-
 ## 🎓 Objetivo Pedagógico
 
 Esta versão transforma a tabela periódica de um exercício de **memorização** para um desafio de **dedução científica**, onde o aluno precisa:
@@ -222,34 +148,15 @@ Esta versão transforma a tabela periódica de um exercício de **memorização*
 
 ---
 
-## 👨‍💻 Autor
+## 👨‍💻 Autor: Clarice Aparecida dos Santos Fonseca
 
 **Projeto de TCC - Sistemas de Informação**
-Versão 2.0 - Sistema de Dedução
-
----
-
-## 📝 Notas de Versão
-
-**v2.0 - Sistema de Dedução (Atual)**
-- ✅ Removido sistema de quiz completo
-- ✅ Elementos mostram apenas símbolo
-- ✅ Sistema de dicas clicáveis implementado
-- ✅ Nova pontuação: +100/-10/-20
-- ✅ Modais atualizados
-- ✅ Interface otimizada para dedução
-
-**v1.0 - Sistema de Quiz (Anterior)**
-- Sistema de quiz ao final
-- Elementos com todas as informações
-- Pontuação baseada em tempo
-- Sistema de estrelas
 
 ---
 
 ## 🎉 Conclusão
 
-Esta nova versão oferece uma experiência de aprendizado muito mais **engajadora** e **educativa**, transformando o estudo da tabela periódica em um verdadeiro **desafio investigativo**!
+A Tabela Periódica gamificada oferece uma experiência de aprendizado m **engajadora** e **educativa**, transformando o seu estudo um verdadeiro **desafio investigativo**!
 
 **Boa sorte na sua jornada de descoberta química!** 🧪🔬✨
 
@@ -279,3 +186,15 @@ Ao completar todos os 118 elementos químicos, você terá acesso a uma **tela e
 - 🔄 **Começar Nova Jornada** - Reseta todo o progresso para jogar novamente
 
 Esta visualização é uma **recompensa visual** pelo seu esforço em dominar toda a tabela periódica! 🎉
+
+---
+
+## 💪 Mensagens Motivacionais
+
+Durante sua jornada, você receberá mensagens especiais ao completar famílias:
+
+- **Faltando 5 ou menos famílias:** 💙 Mensagem azul de incentivo
+- **Faltando 3 ou menos famílias:** 💜 Mensagem roxa destacando o progresso
+- **Faltando apenas 1 família:** 🏆 **ALERTA DOURADO** - Você está a uma família de desbloquear a tabela completa!
+
+Essas mensagens aparecem no modal de vitória após completar cada família, mantendo você motivado até o final! 🎯
