@@ -749,8 +749,12 @@ function showCompletionMessage() {
     // Salvar progresso
     saveProgress();
     
-    // VERIFICAR SE COMPLETOU TODA A TABELA (118 elementos)
-    if (completedElements.size === 118) {
+    // Log de progresso para debug
+    console.log(`📊 Progresso: ${completedElements.size}/118 elementos, ${completedFamilies.size}/21 famílias`);
+    
+    // VERIFICAR SE COMPLETOU TODA A TABELA (118 elementos E 21 famílias)
+    if (completedElements.size === 118 && completedFamilies.size === 21) {
+        console.log('🎉 PARABÉNS! Tabela periódica completa!');
         showFullTableCompletionMessage();
         return;
     }
@@ -759,6 +763,43 @@ function showCompletionMessage() {
     document.getElementById('finalScore').textContent = currentScore;
     document.getElementById('finalTime').textContent = formatTime(timeElapsed);
     document.getElementById('finalHints').textContent = hintsUsed;
+    
+    // Mensagem motivacional baseada no progresso
+    const motivationDiv = document.getElementById('victoryMotivation');
+    const familiesRemaining = 21 - completedFamilies.size;
+    
+    if (familiesRemaining === 1) {
+        motivationDiv.style.display = 'block';
+        motivationDiv.innerHTML = `
+            <div style="background: linear-gradient(135deg, #FFD700, #FFA500); padding: 20px; border-radius: 10px; margin-bottom: 20px; text-align: center;">
+                <h3 style="margin: 0 0 10px 0; color: white; font-size: 1.5em;">🔥 QUASE LÁ!</h3>
+                <p style="margin: 0; color: white; font-size: 1.2em; font-weight: bold;">
+                    Falta apenas <span style="font-size: 1.5em;">1 família</span> para completar TODA a tabela periódica!
+                </p>
+                <p style="margin: 10px 0 0 0; color: white;">🏆 Complete a última família e desbloqueie a visualização especial!</p>
+            </div>
+        `;
+    } else if (familiesRemaining <= 3) {
+        motivationDiv.style.display = 'block';
+        motivationDiv.innerHTML = `
+            <div style="background: linear-gradient(135deg, #667eea, #764ba2); padding: 15px; border-radius: 10px; margin-bottom: 20px; text-align: center;">
+                <p style="margin: 0; color: white; font-size: 1.1em;">
+                    🎯 Ótimo progresso! Faltam apenas <strong>${familiesRemaining} famílias</strong>!
+                </p>
+            </div>
+        `;
+    } else if (familiesRemaining <= 5) {
+        motivationDiv.style.display = 'block';
+        motivationDiv.innerHTML = `
+            <div style="background: linear-gradient(135deg, #4facfe, #00f2fe); padding: 15px; border-radius: 10px; margin-bottom: 20px; text-align: center;">
+                <p style="margin: 0; color: white; font-size: 1.1em;">
+                    💪 Você está arrasando! Faltam ${familiesRemaining} famílias!
+                </p>
+            </div>
+        `;
+    } else {
+        motivationDiv.style.display = 'none';
+    }
     
     // Abrir modal de vitória
     DOM.victoryModal.classList.add('active');
