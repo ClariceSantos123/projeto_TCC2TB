@@ -1,10 +1,6 @@
-/**
- * =============================================
- * TABELA PERIÓDICA INTERATIVA - APLICAÇÃO PRINCIPAL
- * TCC - Sistemas de Informação
- * VERSÃO MODIFICADA - Sistema de Dedução
- * =============================================
- */
+
+//TABELA PERIÓDICA INTERATIVA - APLICAÇÃO PRINCIPAL
+ 
 
 // ============================================
 // VARIÁVEIS GLOBAIS
