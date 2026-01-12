@@ -3,11 +3,7 @@
  * DADOS DOS ELEMENTOS QUÍMICOS - PARTE 1
  * Tabela Periódica Interativa - TCC
  * =============================================
- * 
- * INSTRUÇÕES:
- * 1. Salve este arquivo como: data.js
- * 2. Coloque na mesma pasta que index.html
- * 3. Certifique-se que está em UTF-8
+
  */
 
 const FAMILIES_DATA = {
