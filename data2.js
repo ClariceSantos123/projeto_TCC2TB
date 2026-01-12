@@ -3,11 +3,7 @@
  * DADOS DOS ELEMENTOS QUÍMICOS - PARTE 2
  * Famílias 13-15 e Metais de Transição 3-7
  * =============================================
- * 
- * INSTRUÇÕES:
- * 1. Salve este arquivo como: data2.js
- * 2. Coloque na mesma pasta que index.html e data.js
- * 3. Certifique-se que está em UTF-8
+ 
  */
 
 // Adicionar ao objeto FAMILIES_DATA
