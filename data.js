@@ -1,10 +1,6 @@
-/**
- * =============================================
- * DADOS DOS ELEMENTOS QUÍMICOS - PARTE 1
- * Tabela Periódica Interativa - TCC
- * =============================================
 
- */
+ // DADOS DOS ELEMENTOS QUÍMICOS - PARTE 1
+ 
 
 const FAMILIES_DATA = {
     'gases-nobres': {
