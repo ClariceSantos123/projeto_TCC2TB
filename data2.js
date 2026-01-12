@@ -6,7 +6,6 @@
  
  */
 
-// Adicionar ao objeto FAMILIES_DATA
 Object.assign(FAMILIES_DATA, {
 
     'familia-carbono': {
