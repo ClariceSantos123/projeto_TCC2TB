@@ -4,12 +4,7 @@
  * Metais de Transição (8-12), Lantanídeos e Actinídeos
  * + Configurações do Sistema
  * =============================================
- * 
- * INSTRUÇÕES:
- * 1. Salve este arquivo como: data3.js
- * 2. Coloque na mesma pasta que index.html, data.js e data2.js
- * 3. Este é o ÚLTIMO arquivo de dados
- * 4. Certifique-se que está em UTF-8
+
  */
 
 Object.assign(FAMILIES_DATA, {
