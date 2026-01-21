@@ -1,6 +1,5 @@
 /**
  * =============================================
- * DADOS DOS ELEMENTOS QUÍMICOS - PARTE 3
  * Metais de Transição (8-12), Lantanídeos e Actinídeos
  * + Configurações do Sistema
  * =============================================
